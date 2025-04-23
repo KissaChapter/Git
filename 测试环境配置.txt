@@ -1,0 +1,8 @@
+虚拟机：kali2024.1
+Python版本：Python3.12
+靶机Metasploitable2
+
+ip设置：
+攻击机：kali（192.168.157.129，NAT模式）
+靶机：Metasploitable（192.168.127.130，NAT模式）
+主机：VMnet8（192.168.157.1）、WLAN（10.210.21.250）
