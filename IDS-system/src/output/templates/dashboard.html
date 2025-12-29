@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}仪表盘{% endblock %}
+{% block content %}
+<div class="row mb-3">
+  <div class="col-md-12">
+    <div class="d-flex justify-content-between align-items-center">
+      <h4>网络入侵检测系统 - 实时监控</h4>
+      <div>
+        <a href="/report/csv" class="btn btn-success">
+          <i class="bi bi-download"></i> 导出CSV分析结果
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+      <div class="card mb-4">
+        <div class="card-header">24h 攻击趋势</div>
+        <div class="card-body"><div id="trend" style="height:300px;"></div></div>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">攻击类型分布</div>
+        <div class="card-body"><div id="pie" style="height:300px;"></div></div>
+      </div>
+  </div>
+</div>
+<script src="{{url_for('static', filename='js/dashboard.js')}}"></script>
+{% endblock %}

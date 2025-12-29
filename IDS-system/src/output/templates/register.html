@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户注册</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/static/background/2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .register-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2 style="text-align: center; color: #333; margin-bottom: 25px;">用户注册</h2>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div style="margin-bottom: 15px;">
+                    {% for message in messages %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">用户名</label>
+                <input type="text" name="username" class="form-control" required minlength="3">
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">密码</label>
+                <input type="password" name="password" class="form-control" required minlength="6">
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">确认密码</label>
+                <input type="password" name="confirm_password" class="form-control" required minlength="6">
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">验证码</label>
+                <div class="d-flex align-items-center">
+                    <input type="text" name="captcha" class="form-control" required style="margin-right: 10px;">
+                    <img src="{{ captcha_image }}" style="height: 40px; cursor: pointer;" onclick="this.src='{{ captcha_image }}&t=' + Date.now()">
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">注册</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            已有账号？<a href="{{ url_for('login') }}" style="color: #667eea; text-decoration: none;">立即登录</a>
+        </div>
+    </div>
+</body>
+</html>

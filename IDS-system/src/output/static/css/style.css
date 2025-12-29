@@ -1,0 +1,14 @@
+.form-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.file-input-wrapper {
+    flex: 1;
+}
+
+.upload-btn {
+    white-space: nowrap;
+}

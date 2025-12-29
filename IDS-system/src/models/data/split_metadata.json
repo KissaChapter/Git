@@ -1,0 +1,7 @@
+{
+  "train_batches": 1254,
+  "test_batches": 1254,
+  "feature_count": 41,
+  "test_ratio": 0.2,
+  "random_seed": 42
+}
