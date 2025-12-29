@@ -1,0 +1,2 @@
+[console_scripts]
+netscan = network_scanner.main:main
